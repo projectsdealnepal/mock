@@ -1,0 +1,188 @@
+- subject: mathematics
+  topics:
+    - name: Set and Function
+      total_marks: 7
+      questions:
+        - marks: 1
+          number: 5
+        - marks: 2
+          number: 1
+    - name: Algebra
+      total_marks: 11
+      questions:
+        - marks: 1
+          number: 5
+        - marks: 2
+          number: 3
+    - name: Trigonometry
+      total_marks: 5
+      questions:
+        - marks: 1
+          number: 3
+        - marks: 2
+          number: 1
+    - name: Coordinate Geometry
+      total_marks: 9
+      questions:
+        - marks: 1
+          number: 3
+        - marks: 2
+          number: 3
+    - name: Calculus
+      total_marks: 14
+      questions:
+        - marks: 1
+          number: 4
+        - marks: 2
+          number: 5
+    - name: Vectors
+      total_marks: 4
+      questions:
+        - marks: 1
+          number: 2
+        - marks: 2
+          number: 1
+
+- subject: English
+  topics:
+    - name: comprehension
+      total_marks: 13
+      questions:
+          - marks: 1
+            number: 9
+          - marks: 2
+            number: 2
+    - name: grammar
+      total_marks: 7
+      questions:
+          - marks: 1
+            number: 5
+          - marks: 2
+            number: 1
+  
+- subject: Chemistry
+  topics:
+    - name: Language of Chemistry & Physical Chemistry
+      total_marks: 3
+      questions:
+          - marks: 1
+            number: 1
+          - marks: 2
+            number: 1
+
+    - name: Atomic Structure
+      total_marks: 3
+      questions:
+          - marks: 1
+            number: 1
+          - marks: 2
+            number: 1
+
+    - name: Electronics Theory to Valency
+      total_marks: 1
+      questions:
+          - marks: 1
+            number: 1
+          - marks: 1
+            number: 0
+
+    - name: Oxidation and Reduction
+      total_marks: 2
+      questions:
+          - marks: 1
+            number: 1
+          - marks: 1
+            number: 1
+
+    - name: Periodic Classification of Element
+      total_marks: 3
+      questions:
+          - marks: 1
+            number: 1
+          - marks: 2
+            number: 1
+
+    - name: Molecular Weight and Mole
+      total_marks: 3
+      questions:
+          - marks: 1
+            number: 1
+          - marks: 2
+            number: 1
+
+    - name: Non-Metals
+      total_marks: 2
+      questions:
+          - marks: 1
+            number: 1
+          - marks: 1
+            number: 1
+
+    - name: Metals
+      total_marks: 3
+      questions:
+          - marks: 1
+            number: 1
+          - marks: 2
+            number: 1
+
+    - name: Organic Chemistry
+      total_marks: 3
+      questions:
+          - marks: 1
+            number: 1
+          - marks: 2
+            number: 1
+
+    - name: Saturated and unsaturated Hydrocarbons & Aeromatic compound
+      total_marks: 2
+      questions:
+          - marks: 1
+            number: 1
+          - marks: 1
+            number: 1
+
+- subject: Physics
+  topics:
+    - name: Mechanics
+      total_marks: 12
+      questions:
+        - marks: 1
+          number: 6
+        - marks: 2
+          number: 6
+    - name: Heat
+      total_marks: 4
+      questions:
+        - marks: 1
+          number: 2
+        - marks: 2
+          number: 2
+    - name: Optics
+      total_marks: 6
+      questions:
+        - marks: 1
+          number: 3
+        - marks: 2
+          number: 3
+    - name: Sound
+      total_marks: 6
+      questions:
+        - marks: 1
+          number: 3
+        - marks: 2
+          number: 3
+    - name: Electricity
+      total_marks: 12
+      questions:
+        - marks: 1
+          number: 6
+        - marks: 2
+          number: 6
+    - name: Atomic Physics and Electronics
+      total_marks: 5
+      questions:
+        - marks: 1
+          number: 2
+        - marks: 2
+          number: 3

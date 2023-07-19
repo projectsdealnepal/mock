@@ -1,0 +1,125 @@
+class kCheckSubmittedAnswerView(APIView):
+    """
+    This API takes a POST request with the following parameters:
+    - id: the ID of the question being answered
+    - selected_option: the option selected by the user ('a', 'b', 'c', or 'd')
+
+    The API returns a JSON response with the following data for the answered question:
+    - id: the ID of the question
+    - question: the question content
+    - option_a: option a
+    - option_b: option b
+    - option_c: option c
+    - option_d: option d
+    - topic: the ID of the topic
+    - topic_name: the name of the topic
+    - subject_name: the name of the subject
+    - marks: the marks assigned to the question
+    - difficulty_level: the difficulty level of the question
+    - has_attachment: whether the question has an attachment
+    - question_attachments: the attachments of the question
+    - correct_answer: the correct answer
+    - selected_option: the option selected by the user
+    - detailed_answer: the detailed answer
+    """
+
+    serializer_class = AnswerSubmitSerializer
+
+    def post(self, request, *args, **kwargs):
+        serializer = AnswerSubmitSerializer(data=request.data, many=True)
+        if serializer.is_valid():
+            answer_data_list = serializer.validated_data
+            exam_history_list = []
+            response_data_list = []
+            for answer_data in answer_data_list:
+                temp_dict = {}
+                solution = Solution.objects.get(id=answer_data["id"])
+                is_correct = (
+                    True
+                    if answer_data["selected_option"] == solution.correct_answer
+                    else False
+                )
+                exam_history_data = {
+                    "user": 1,
+                    "question": solution.question.pk,
+                    "selected_answer": answer_data["selected_option"],
+                    "is_correct": is_correct,
+                }
+                exam_history_serializer = ExamHistorySerializer(data=exam_history_data)
+                if exam_history_serializer.is_valid():
+                    exam_history = exam_history_serializer.save()
+                    exam_history_list.append(exam_history)
+                exam_history_data.pop("user")
+                exam_history_data.pop("question")
+                temp_dict.update(exam_history_data)
+                temp_dict["id"] = solution.question.pk
+                temp_dict["question"] = solution.question.question
+                temp_dict["option_a"] = solution.question.option_a
+                temp_dict["option_b"] = solution.question.option_b
+                temp_dict["option_c"] = solution.question.option_c
+                temp_dict["option_d"] = solution.question.option_d
+                temp_dict["topic"] = solution.question.topic
+                temp_dict["topic_name"] = solution.question.topic.name
+                temp_dict["subject_name"] = solution.question.topic.subject.name
+                temp_dict["marks"] = solution.question.difficulty_level
+                temp_dict["difficulty_level"] = solution.question.difficulty_level
+                temp_dict["has_attachment"] = solution.question.has_attachment
+                # temp_dict['question_attachments'] = solution.question.question.que
+                temp_dict["detailed_answer"] = solution.detailed_answer
+
+                temp_dict["topic"] = solution.question.topic
+                temp_dict["topic"] = solution.question.topic
+
+            response_data = AnswerSubmitResponseSerializer(
+                instance=[exam_history.question for exam_history in exam_history_list],
+                many=True,
+            ).data
+            return Response(response_data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+check_submitted_answer_view = kCheckSubmittedAnswerView.as_view()
+
+
+
+class AnswerSubmitResponseSerializer(
+    GenerateQuestionSerializer, AnswerSubmitSerializer
+):
+    correct_answer = serializers.CharField(source="solution", read_only=True)
+    detailed_answer = serializers.CharField(source="solution", read_only=True)
+    # id = serializers.IntegerField(source="GenerateQuestionSerializer.id")
+    # selected_option = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Question
+        fields = (
+            "id",
+            "question",
+            "option_a",
+            "option_b",
+            "option_c",
+            "option_d",
+            "topic",
+            "topic_name",
+            "subject_name",
+            "marks",
+            "difficulty_level",
+            "has_attachment",
+            "question_attachments",
+            "correct_answer",
+            "selected_option",
+            "detailed_answer",
+        )
+
+    # def get_selected_option(self, obj):
+
+
+to get the response of the question and answer
+    def post(self, request, *args, **kwargs):
+        print("from view ==>",request.data)
+        serializer = AnswerSubmissionSerializer(data=request.data, context={'request':request})
+        if serializer.is_valid():
+            exam_history_list =self.verify_and_update_status(serializer)
+            response_data = AnswerResponseSerializer(exam_history_list, many=True, context={'request': request}).data
+            return Response(response_data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

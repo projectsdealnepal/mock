@@ -1,0 +1,87 @@
+- subject: MATHEMATICS
+  topics:
+    - name: DETERMINANTS
+      total_marks: 1
+      questions:
+        - marks: 1
+          number: 19
+        - marks: 2
+          number: 10
+    - name: SEQUENCES AND SERIES
+      total_marks: 3
+      questions:
+        - marks: 1
+          number: 5
+        - marks: 2
+          number: 10
+    - name: INDEFINITE INTEGRATION
+      total_marks: 2
+      questions:
+        - marks: 1
+          number: 20
+        - marks: 2
+          number: 0
+    - name: DIFFERENTIATION
+      total_marks: 4
+      questions:
+        - marks: 1
+          number: 20
+        - marks: 2
+          number: 1
+    - name: TRIGONOMETRIC EQUATIONS
+      total_marks: 4
+      questions:
+        - marks: 1
+          number: 20
+        - marks: 2
+          number: 1
+
+- subject: BIOLOGY
+  topics:
+    - name: REPRODUCTION (I)
+      total_marks: 4
+      questions:
+        - marks: 1
+          number: 20
+        - marks: 2
+          number: 1
+    - name: Atomic Structure
+      total_marks: 4
+      questions:
+        - marks: 1
+          number: 2
+        - marks: 2
+          number: 2
+    - name: Oxidation and Reduction
+      total_marks: 5
+      questions:
+        - marks: 1
+          number: 1
+        - marks: 2
+          number: 20
+
+- subject: PHYSICS
+  topics:
+    - name: SDSD
+      total_marks: 3
+      questions:
+        - marks: 1
+          number: 12
+        - marks: 2
+          number: 1
+
+    - name: Mechanics
+      total_marks: 3
+      questions:
+        - marks: 1
+          number: 12
+        - marks: 2
+          number: 1
+
+    - name: Optics
+      total_marks: 1
+      questions:
+        - marks: 1
+          number: 1
+        - marks: 1
+          number: 0
